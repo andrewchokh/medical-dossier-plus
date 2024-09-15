@@ -1,0 +1,117 @@
+/* Primary Button */
+.primary_button {
+  -fx-pref-width: 115;
+  -fx-pref-height: 45;
+  -fx-font-size: 14;
+  -fx-font-weight: bold;
+  -fx-background-color: #397887;
+  -fx-background-radius: 2;
+  -fx-border-color: #397887;
+  -fx-border-width: 2;
+  -fx-text-fill: #EEEEEE;
+}
+
+.primary_button:hover {
+  -fx-cursor: hand;
+  -fx-border-color: #50c3af;
+}
+
+.primary_button:pressed {
+  -fx-border-color: #92e493;
+}
+
+.primary_button:focused {
+  -fx-border-color: #6ad4a4;
+}
+
+.primary_button FontAwesomeIconView {
+  -fx-fill: white;
+}
+
+.wide_primary_button {
+  -fx-pref-width: 165;
+  -fx-pref-height: 45;
+  -fx-font-size: 14;
+  -fx-font-weight: bold;
+  -fx-background-color: #397887;
+  -fx-background-radius: 2;
+  -fx-border-color: #397887;
+  -fx-border-width: 2;
+  -fx-text-fill: #EEEEEE;
+}
+
+.wide_primary_button:hover {
+  -fx-cursor: hand;
+  -fx-border-color: #50c3af;
+}
+
+.wide_primary_button:pressed {
+  -fx-border-color: #92e493;
+}
+
+.wide_primary_button:focused {
+  -fx-border-color: #6ad4a4;
+}
+
+.wide_primary_button FontAwesomeIconView {
+  -fx-fill: white;
+}
+
+/* Secondary Button */
+.secondary_button {
+  -fx-pref-width: 115;
+  -fx-pref-height: 45;
+  -fx-font-size: 14;
+  -fx-font-weight: bold;
+  -fx-background-color: #EEEEEE;
+  -fx-background-radius: 2;
+  -fx-border-color: #397887;
+  -fx-border-radius: 2;
+  -fx-border-width: 2;
+  -fx-text-fill: #000000;
+}
+
+.secondary_button:hover {
+  -fx-cursor: hand;
+  -fx-border-color: #50c3af;
+}
+
+.secondary_button:pressed {
+  -fx-border-color: #92e493;
+}
+
+.secondary_button:focused {
+  -fx-border-color: #6ad4a4;
+}
+
+.secondary_button FontAwesomeIconView {
+  -fx-fill: black;
+}
+
+/* Text Field */
+.text_field {
+  -fx-background-color: #EEEEEE;
+  -fx-border-color: #397887;
+  -fx-border-radius: 2;
+  -fx-border-width: 2;
+}
+
+.text_field:hover {
+  -fx-cursor: hand;
+  -fx-border-color: #50c3af;
+}
+
+.text_field:pressed {
+  -fx-border-color: #92e493;
+}
+
+.text_field:focused {
+  -fx-border-color: #6ad4a4;
+}
+
+/* Choice Box */
+.choice_box {
+  -fx-background-color: #EEEEEE;
+  -fx-border-color: #4bb0b1;
+  -fx-border-width: 2;
+}

@@ -1,0 +1,11 @@
+.diary_container {
+  -fx-background-color: #DEDEDE;
+}
+
+FontAwesomeIconView {
+  -fx-fill: white;
+}
+
+HBox, VBox {
+  -fx-spacing: 10;
+}

@@ -12,4 +12,5 @@ module com.andrewchokh.medicaldossierplus {
     exports com.andrewchokh.medicaldossierplus.Controllers.Client;
     exports com.andrewchokh.medicaldossierplus.Models;
     exports com.andrewchokh.medicaldossierplus.Views;
+    exports com.andrewchokh.medicaldossierplus.Enums;
 }

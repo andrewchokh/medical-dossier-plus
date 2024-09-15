@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="records_container" stylesheets="@../../Styles/client.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.RecordsController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox prefHeight="45.0" prefWidth="780.0">
+               <children>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Create">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Edit">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PENCIL" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Remove">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TRASH" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="529.0" prefWidth="780.0" stylesheets="@../../Styles/diary.css">
+               <children>
+                  <VBox prefHeight="470.0" prefWidth="552.0" styleClass="left_side_container">
+                     <children>
+                        <TextArea editable="false" prefHeight="500.0" prefWidth="552.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" wrapText="true" />
+                        <HBox prefHeight="12.0" prefWidth="552.0">
+                           <children>
+                              <Label text="Date of entry: -" />
+                              <Label layoutX="10.0" layoutY="10.0" text="Author: -" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ScrollPane prefHeight="531.0" prefWidth="218.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

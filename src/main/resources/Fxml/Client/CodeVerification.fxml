@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" styleClass="verification_container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Client.CodeVerificationController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label styleClass="title_label" text="Verification Code" />
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="55.0" prefWidth="280.0" styleClass="description_label" text="The verification code has been sent to specified email. Please, enter the received 6-digit code during next 60 seconds." textOverrun="CLIP" wrapText="true" />
+            <TextField fx:id="codeField" styleClass="text_field" />
+            <Button fx:id="verifyButton" mnemonicParsing="false" styleClass="primary_button" text="Verify" />
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../Styles/verification.css" />
+      <URL value="@../../Styles/controls.css" />
+   </stylesheets>
+</AnchorPane>

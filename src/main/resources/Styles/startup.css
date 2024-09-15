@@ -1,0 +1,48 @@
+.startup_container {
+  -fx-background-color: #DEDEDE;
+}
+
+/*  */
+.logo_container {
+  -fx-background-color: #5997A6;
+  -fx-alignment: center;
+}
+
+.logo_container Text {
+  -fx-font-size: 18;
+  -fx-font-weight: bold;
+}
+
+.logo_container FontAwesomeIconView {
+  -fx-text-fill: #000000;
+}
+
+.form_container {
+  -fx-spacing: 20;
+  -fx-alignment: center;
+}
+
+.form_container Button {
+  -fx-max-height: 30;
+}
+
+.field_box_container {
+  -fx-pref-height: 0;
+  -fx-spacing: 3;
+  -fx-max-width: 220
+}
+
+.field_box_container Text {
+  -fx-font-size: 20;
+  -fx-fill: #000000;
+}
+
+.field_box_container TextField {
+  -fx-font-size: 13;
+  -fx-fill: #000000;
+}
+
+.error_text {
+  -fx-font-size: 14;
+  -fx-fill: #FF0000;
+}

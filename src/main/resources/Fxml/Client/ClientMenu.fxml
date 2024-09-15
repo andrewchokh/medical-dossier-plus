@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="sideBar" minHeight="-Infinity" prefHeight="600.0" prefWidth="180.0" stylesheets="@../../Styles/side_bar.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Client.ClientMenuController">
+   <children>
+    <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="180.0" styleClass="side_bar_container">
+         <children>
+            <VBox maxHeight="1.7976931348623157E308" prefHeight="35.0" prefWidth="163.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <FontAwesomeIconView glyphName="HEARTBEAT" selectionFill="BLACK" size="48" strokeType="OUTSIDE" strokeWidth="0.0" tabSize="0" text="" />
+                  <Label text="Medical Dossier +" />
+               </children>
+            </VBox>
+            <VBox layoutY="89.0" prefHeight="370.0" prefWidth="180.0" styleClass="side_bar_container" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <Button fx:id="homeButton" layoutX="43.0" layoutY="118.0" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Home">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="HOME" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic></Button>
+                  <Button fx:id="diaryButton" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Diary">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="BOOK" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic></Button>
+                  <Button fx:id="recordsButton" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Records">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic></Button>
+               </children>
+            </VBox>
+            <VBox layoutY="345.0" prefHeight="100.0" prefWidth="180.0" styleClass="report_container" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <children>
+                  <Label text="Found a bug?" />
+                  <Button fx:id="reportButton" mnemonicParsing="false" styleClass="side_bar_secondary_button" text="Report">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

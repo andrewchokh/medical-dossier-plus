@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="750.0" minWidth="600.0" prefHeight="750.0" prefWidth="600.0" styleClass="startup_container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.SignupController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="180.0" styleClass="logo_container" stylesheets="@../Styles/startup.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FontAwesomeIconView glyphName="HEARTBEAT" size="45" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medical Dossier+">
+               <font>
+                  <Font size="16.0" />
+               </font></Text>
+         </children></VBox>
+      <VBox layoutX="200.0" layoutY="15.0" maxWidth="380.0" prefHeight="360.0" prefWidth="380.0" spacing="1.0" styleClass="form_container" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account type:" />
+                  <ChoiceBox fx:id="accountTypeChoiceBox" prefHeight="25.0" prefWidth="223.0" styleClass="choice_box" />
+               </children>
+            </VBox>
+            <VBox layoutX="90.0" layoutY="32.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" />
+                  <TextField fx:id="firstNameField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" />
+                  <TextField fx:id="lastNameField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
+                  <TextField fx:id="loginField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+                  <TextField fx:id="emailField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+                  <TextField fx:id="passwordField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <VBox layoutX="90.0" layoutY="153.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password:" />
+                  <TextField fx:id="repeatPasswordField" styleClass="text_field" />
+               </children>
+            </VBox>
+            <Button fx:id="signUpButton" mnemonicParsing="false" styleClass="primary_button" text="Sign Up" />
+            <Button fx:id="logInButton" layoutX="110.0" layoutY="544.0" mnemonicParsing="false" styleClass="secondary_button" text="Log In" />
+            <Text fx:id="errorText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error_text" text="Error" visible="false" />
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../Styles/startup.css" />
+      <URL value="@../Styles/controls.css" />
+   </stylesheets>
+</AnchorPane>
