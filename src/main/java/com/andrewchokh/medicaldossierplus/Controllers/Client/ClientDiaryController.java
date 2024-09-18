@@ -1,12 +1,16 @@
 package com.andrewchokh.medicaldossierplus.Controllers.Client;
 
 import static com.andrewchokh.medicaldossierplus.App.currentUser;
+import static com.andrewchokh.medicaldossierplus.Utils.DiaryUtil.loadDiaryEntries;
+import static com.andrewchokh.medicaldossierplus.Utils.DiaryUtil.saveEntry;
+import static com.andrewchokh.medicaldossierplus.Utils.DiaryUtil.updateEntryList;
 
 import com.andrewchokh.medicaldossierplus.Database.SQLite;
 import com.andrewchokh.medicaldossierplus.Types.Builders.DiaryEntryBuilder;
 import com.andrewchokh.medicaldossierplus.Types.DiaryEntry;
 import com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil;
 import com.andrewchokh.medicaldossierplus.Utils.DateUtil;
+import com.andrewchokh.medicaldossierplus.Utils.DiaryUtil;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,7 +38,7 @@ public class ClientDiaryController implements Initializable {
     public FontAwesomeIconView createButtonIcon;
     public FontAwesomeIconView editButtonIcon;
 
-    private ArrayList<DiaryEntry> diaryEntries = new ArrayList<>();
+    private final ArrayList<DiaryEntry> diaryEntries = new ArrayList<>();
 
     private Boolean createMode = false;
     private Boolean editMode = false;
@@ -44,12 +48,11 @@ public class ClientDiaryController implements Initializable {
         createButton.setOnAction(actionEvent -> createEntry());
         editButton.setOnAction(actionEvent -> editEntry());
         removeButton.setOnAction(actionEvent -> removeEntry());
-        refreshButton.setOnAction(actionEvent -> refreshEntryList());
+        refreshButton.setOnAction(actionEvent -> refreshEntries());
 
         entriesList.getSelectionModel().selectedItemProperty().addListener(this::switchEntry);
 
-        loadDiaryEntries();
-        updateEntryList();
+        refreshEntries();
     }
 
     private void switchEntry(ObservableValue<String> observableValue, Object o, Object o1) {
@@ -72,8 +75,10 @@ public class ClientDiaryController implements Initializable {
     private void createEntry() {
         createMode = !createMode;
 
+        changeControlsActivity();
+
         if (createMode) {
-            changeControlsActivity();
+
             createButton.setDisable(false);
             diaryArea.setDisable(false);
 
@@ -85,17 +90,15 @@ public class ClientDiaryController implements Initializable {
             createButtonIcon.setGlyphName("SAVE");
         }
         else {
-            SQLite.executeUpdate(
-                "INSERT INTO DiaryEntries (id, user_id, content, creation_date) VALUES (%d, %d, '%s', '%s')"
-                    .formatted(
-                        DatabaseUtil.generateRandomID(),
-                        currentUser.getId(),
-                        diaryArea.getText(),
-                        DateUtil.dateToString(DateUtil.getCurrentDate())
-                    )
-            );
+            DiaryEntry diaryEntry = new DiaryEntryBuilder()
+                .id(DatabaseUtil.generateRandomID())
+                .userId(currentUser.getId())
+                .content(diaryArea.getText())
+                .creationDate(DateUtil.getCurrentDate())
+                .build();
 
-            changeControlsActivity();
+            saveEntry(diaryEntry);
+
             createButton.setDisable(false);
             diaryArea.setDisable(false);
 
@@ -107,7 +110,7 @@ public class ClientDiaryController implements Initializable {
             createButtonIcon.setGlyphName("PENCIL");
         }
 
-        refreshEntryList();
+        refreshEntries();
     }
 
     private void editEntry() {
@@ -119,11 +122,10 @@ public class ClientDiaryController implements Initializable {
 
         editMode = !editMode;
 
-        if (editMode) {
-            changeControlsActivity();
-            editButton.setDisable(false);
-            diaryArea.setDisable(false);
+        changeControlsActivity();
+        enableCreateModeControls();
 
+        if (editMode) {
             diaryArea.setEditable(true);
             editButton.setText("Save");
             editButtonIcon.setGlyphName("SAVE");
@@ -133,10 +135,6 @@ public class ClientDiaryController implements Initializable {
                 "UPDATE DiaryEntries SET content = '%s' WHERE id = '%d'"
                     .formatted(diaryArea.getText(), diaryEntries.get(index).getId())
             );
-
-            changeControlsActivity();
-            editButton.setDisable(false);
-            diaryArea.setDisable(false);
 
             diaryArea.setEditable(false);
             editButton.setText("Edit");
@@ -158,52 +156,12 @@ public class ClientDiaryController implements Initializable {
 
         entriesList.getItems().remove(index, index + 1);
 
-        refreshEntryList();
+        refreshEntries();
     }
 
-    private void refreshEntryList() {
-        loadDiaryEntries();
-        updateEntryList();
-    }
-
-    private void loadDiaryEntries() {
-        diaryEntries.clear();
-
-        List<Object> query = SQLite.executeQuery(String.format(
-            "SELECT * FROM DiaryEntries WHERE user_id = '%d'",
-            currentUser.getId()
-        ));
-
-        if (query.isEmpty()) return;
-
-        for (int i = query.size() - 1; i >= 0 ; i--) {
-            HashMap<String, Object> diaryEntryData = (HashMap<String, Object>) query.get(i);
-
-            Date creationDate = DateUtil.stringToDate((String) diaryEntryData.get("creation_date"));
-
-            DiaryEntry entry = new DiaryEntryBuilder()
-                .id((int) diaryEntryData.get("id"))
-                .userId((int) diaryEntryData.get("user_id"))
-                .content((String) diaryEntryData.get("content"))
-                .creationDate(creationDate)
-                .build();
-
-            diaryEntries.add(entry);
-        }
-    }
-
-    private void updateEntryList() {
-        ObservableList<String> entries = entriesList.getItems();
-
-        if (!entries.isEmpty()) {
-            entries.remove(0, entries.size());
-        }
-
-        for (int i = diaryEntries.size() - 1; i >= 0 ; i--) {
-            entries.add(String.format("Entry #%d", i + 1));
-        }
-
-        entriesList.setItems(entries);
+    private void refreshEntries() {
+        loadDiaryEntries(diaryEntries);
+        updateEntryList(entriesList, diaryEntries);
     }
 
     private void changeControlsActivity() {
@@ -212,6 +170,10 @@ public class ClientDiaryController implements Initializable {
         removeButton.setDisable(!removeButton.isDisabled());
         refreshButton.setDisable(!refreshButton.isDisabled());
         diaryArea.setDisable(!diaryArea.isDisabled());
-        entriesList.setDisable(!entriesList.isDisabled());
+    }
+
+    private void enableCreateModeControls() {
+        editButton.setDisable(false);
+        diaryArea.setDisable(false);
     }
 }

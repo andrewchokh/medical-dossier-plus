@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="dashboard_container" stylesheets="@../../Styles/admin.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="dashboard_container" stylesheets="@../../Styles/admin.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminDashboardController">
    <children>
       <VBox prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -16,7 +16,7 @@
                         <VBox prefHeight="43.0" prefWidth="768.0">
                            <children>
                               <Label text="Welcome to Medical Dossier +," />
-                              <Label text="Name!" />
+                              <Label fx:id="nameLabel" text="Name!" />
                            </children>
                         </VBox>
                         <FontAwesomeIconView glyphName="USER" size="48" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -33,34 +33,38 @@
                      <children>
                         <HBox prefHeight="46.0" prefWidth="540.0" stylesheets="@../../Styles/controls.css">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="170.0" styleClass="wide_primary_button" stylesheets="@../../Styles/controls.css" text="Remove user">
+                              <Button fx:id="removeUserButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="170.0" styleClass="wide_primary_button" stylesheets="@../../Styles/controls.css" text="Remove user">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="TRASH" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="exportInfoButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="170.0" styleClass="wide_primary_button" stylesheets="@../../Styles/controls.css" text="Export info">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="TABLE" strokeType="OUTSIDE" strokeWidth="0.0" />
                                  </graphic>
                               </Button>
                            </children></HBox>
                               <HBox prefHeight="375.0" prefWidth="540.0" styleClass="characteristics_preview_container" stylesheets="@../../Styles/controls.css">
                            <children>
-                              <VBox prefHeight="179.0" prefWidth="270.0">
+                              <VBox prefHeight="368.0" prefWidth="310.0">
                                  <children>
-                                    <Label text="First name: -" />
-                                    <Label text="Last name: -" />
-                                    <Label layoutX="10.0" layoutY="67.0" text="Weight: -" />
-                                    <Label layoutX="10.0" layoutY="124.0" text="Avg. pulse: -" />
+                                    <Label fx:id="firstNameLabel" text="First name: -" />
+                                    <Label fx:id="lastNameLabel" text="Last name: -" />
+                                    <Label fx:id="pressureLabel" text="Blood pressure: -" />
+                                    <Label fx:id="emailLabel" text="Email: -" />
+                                    <Label fx:id="temperatureLabel" text="Body temperature: -" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label text="Birthday date: -" />
-                                    <Label text="Email: -" />
-                                    <Label layoutX="10.0" layoutY="67.0" text="Avg. Pressure: -" />
-                                    <Label layoutX="10.0" layoutY="124.0" text="Body temperature: -" />
+                                    <Label fx:id="pulseLabel" text="Pulse: -" />
+                                    <Label fx:id="weightLabel" text="Weight: -" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
                      </children></VBox>
-                  <ScrollPane prefHeight="437.0" prefWidth="200.0" styleClass="records_preview_container" />
+                  <ListView fx:id="userList" prefHeight="200.0" prefWidth="200.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" />
                </children>
             </HBox>
          </children>

@@ -1,6 +1,5 @@
 package com.andrewchokh.medicaldossierplus.Enums;
 
-import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminCodeVerificationController;
 import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminController;
 import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminDiaryController;
 import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminRecordsController;

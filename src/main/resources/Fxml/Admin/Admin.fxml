@@ -2,7 +2,7 @@
 
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="adminParent" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="adminParent" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminController">
 <left>
   <fx:include source="AdminMenu.fxml" />
 </left>

@@ -9,13 +9,13 @@ public class Record {
     private final String content;
     private final Date creationDate;
     private final float weight;
-    private final float pulse;
+    private final int pulse;
     private final int systolicBloodPressure;
     private final int diastolicBloodPressure;
     private final float bodyTemperature;
 
     public Record(int id, int regularUserId, int adminUserId, String content, Date creationDate,
-        float weight, float pulse, int systolicBloodPressure, int diastolicBloodPressure,
+        float weight, int pulse, int systolicBloodPressure, int diastolicBloodPressure,
         float bodyTemperature) {
         this.id = id;
         this.regularUserId = regularUserId;
@@ -53,7 +53,7 @@ public class Record {
         return weight;
     }
 
-    public float getPulse() {
+    public int getPulse() {
         return pulse;
     }
 

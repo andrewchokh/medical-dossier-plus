@@ -10,7 +10,7 @@ public class RecordBuilder {
     private String content;
     private Date creationDate;
     private float weight;
-    private float pulse;
+    private int pulse;
     private int systolicBloodPressure;
     private int diastolicBloodPressure;
     private float bodyTemperature;
@@ -45,7 +45,7 @@ public class RecordBuilder {
         return this;
     }
 
-    public RecordBuilder pulse(float pulse) {
+    public RecordBuilder pulse(int pulse) {
         this.pulse = pulse;
         return this;
     }

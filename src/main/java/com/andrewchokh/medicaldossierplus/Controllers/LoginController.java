@@ -65,6 +65,8 @@ public class LoginController implements Initializable {
                 .accountType((int) userData.get("account_type"))
                 .build();
 
+            System.out.println(accountType);
+
             if (accountType == AccountTypes.REGULAR.getValue()) {
                 windowPath = Windows.CLIENT_PARENT;
             }

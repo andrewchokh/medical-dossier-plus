@@ -34,7 +34,7 @@
             </HBox>
             <HBox prefHeight="529.0" prefWidth="780.0" stylesheets="@../../Styles/diary.css">
                <children>
-                  <VBox prefHeight="470.0" prefWidth="552.0" styleClass="left_side_container">
+                  <VBox prefHeight="470.0" prefWidth="552.0">
                      <children>
                         <TextArea fx:id="diaryArea" editable="false" prefHeight="500.0" prefWidth="552.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" wrapText="true" />
                         <Label fx:id="dateLabel" text="Creation date: -" />
