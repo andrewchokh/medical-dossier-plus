@@ -30,11 +30,11 @@ public class DatabaseUtil {
                                                      NOT NULL,
                     content                  TEXT    NOT NULL,
                     creation_date            TEXT    NOT NULL,
-                    weight                   NUMERIC NOT NULL,
+                    weight                   REAL NOT NULL,
                     pulse                    INTEGER NOT NULL,
                     systolic_blood_pressure  INTEGER NOT NULL,
                     diastolic_blood_pressure INTEGER NOT NULL,
-                    body_temperature         NUMERIC NOT NULL
+                    body_temperature         REAL NOT NULL
                 );
                     
                 CREATE TABLE Users (
@@ -46,7 +46,6 @@ public class DatabaseUtil {
                     email        TEXT    NOT NULL,
                     password     TEXT    NOT NULL,
                     account_type INTEGER NOT NULL
-                                         DEFAULT (0)\s
                 );
             """;
 
