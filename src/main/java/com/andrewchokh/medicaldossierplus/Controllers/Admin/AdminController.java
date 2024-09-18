@@ -1,6 +1,5 @@
 package com.andrewchokh.medicaldossierplus.Controllers.Admin;
 
-import com.andrewchokh.medicaldossierplus.App;
 import com.andrewchokh.medicaldossierplus.Enums.SceneVariations;
 import com.andrewchokh.medicaldossierplus.Enums.Windows;
 import com.andrewchokh.medicaldossierplus.Models.Model;
@@ -8,7 +7,6 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class AdminController implements Initializable {

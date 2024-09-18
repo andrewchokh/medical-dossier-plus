@@ -1,6 +1,5 @@
 package com.andrewchokh.medicaldossierplus.Utils;
 
-import static com.andrewchokh.medicaldossierplus.App.currentUser;
 import static com.andrewchokh.medicaldossierplus.Config.Config.DECIMAL_FORMAT;
 
 import com.andrewchokh.medicaldossierplus.Database.SQLite;

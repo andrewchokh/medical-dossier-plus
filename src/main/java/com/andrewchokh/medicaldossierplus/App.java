@@ -2,12 +2,11 @@ package com.andrewchokh.medicaldossierplus;
 
 import com.andrewchokh.medicaldossierplus.Config.Config;
 import com.andrewchokh.medicaldossierplus.Database.SQLite;
-import com.andrewchokh.medicaldossierplus.Models.Model;
 import com.andrewchokh.medicaldossierplus.Enums.Windows;
+import com.andrewchokh.medicaldossierplus.Models.Model;
 import com.andrewchokh.medicaldossierplus.Types.User;
 import com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil;
 import java.io.File;
-import java.util.Arrays;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

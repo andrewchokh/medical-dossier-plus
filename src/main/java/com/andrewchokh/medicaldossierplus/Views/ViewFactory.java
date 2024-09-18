@@ -5,11 +5,9 @@ import java.io.IOException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class ViewFactory {
     private final StringProperty sceneVariation;

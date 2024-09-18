@@ -5,23 +5,17 @@ import static com.andrewchokh.medicaldossierplus.Utils.AuthorizationUtil.changeL
 
 import com.andrewchokh.medicaldossierplus.Database.SQLite;
 import com.andrewchokh.medicaldossierplus.Enums.AccountTypes;
-import com.andrewchokh.medicaldossierplus.Enums.SceneVariations;
 import com.andrewchokh.medicaldossierplus.Enums.Windows;
 import com.andrewchokh.medicaldossierplus.Models.Model;
 import com.andrewchokh.medicaldossierplus.Types.Builders.UserBuilder;
 import com.andrewchokh.medicaldossierplus.Utils.AuthorizationUtil;
 import java.net.URL;
-import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {

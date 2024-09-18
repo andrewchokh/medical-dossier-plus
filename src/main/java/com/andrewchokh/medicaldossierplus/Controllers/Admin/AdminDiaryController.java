@@ -2,11 +2,8 @@ package com.andrewchokh.medicaldossierplus.Controllers.Admin;
 
 import static com.andrewchokh.medicaldossierplus.Utils.DiaryUtil.loadDiaryEntries;
 import static com.andrewchokh.medicaldossierplus.Utils.DiaryUtil.updateEntryList;
-import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.loadRecords;
-import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.updateRecordList;
 
 import com.andrewchokh.medicaldossierplus.Types.DiaryEntry;
-import com.andrewchokh.medicaldossierplus.Types.Record;
 import com.andrewchokh.medicaldossierplus.Types.User;
 import com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil;
 import java.net.URL;
@@ -15,10 +12,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 
 public class AdminDiaryController implements Initializable {

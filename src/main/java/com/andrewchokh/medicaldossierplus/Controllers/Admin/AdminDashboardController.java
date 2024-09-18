@@ -1,15 +1,12 @@
 package com.andrewchokh.medicaldossierplus.Controllers.Admin;
 
-import static com.andrewchokh.medicaldossierplus.App.currentUser;
 import static com.andrewchokh.medicaldossierplus.Utils.UsersUtil.calculateCharacteristics;
 import static com.andrewchokh.medicaldossierplus.Utils.UsersUtil.loadRegularUsers;
 import static com.andrewchokh.medicaldossierplus.Utils.UsersUtil.updateRegularUserList;
 
 import com.andrewchokh.medicaldossierplus.App;
 import com.andrewchokh.medicaldossierplus.Database.SQLite;
-import com.andrewchokh.medicaldossierplus.Types.DiaryEntry;
 import com.andrewchokh.medicaldossierplus.Types.User;
-import com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +21,6 @@ public class AdminDashboardController implements Initializable {
 
     public Label nameLabel;
     public Button removeUserButton;
-    public Button exportInfoButton;
     public Label firstNameLabel;
     public Label lastNameLabel;
     public Label weightLabel;

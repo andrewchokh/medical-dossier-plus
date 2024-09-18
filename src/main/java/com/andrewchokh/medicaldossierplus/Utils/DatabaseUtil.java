@@ -90,8 +90,4 @@ public class DatabaseUtil {
             .accountType((int) userData.get("account_type"))
             .build();
     }
-
-    public static void exportSheet() {
-
-    }
 }

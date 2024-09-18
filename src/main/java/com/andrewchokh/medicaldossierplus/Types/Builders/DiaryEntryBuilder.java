@@ -1,8 +1,6 @@
 package com.andrewchokh.medicaldossierplus.Types.Builders;
 
 import com.andrewchokh.medicaldossierplus.Types.DiaryEntry;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 
 public class DiaryEntryBuilder {

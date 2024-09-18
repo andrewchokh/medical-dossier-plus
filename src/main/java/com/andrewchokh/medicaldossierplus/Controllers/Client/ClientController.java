@@ -1,17 +1,12 @@
 package com.andrewchokh.medicaldossierplus.Controllers.Client;
 
-import com.andrewchokh.medicaldossierplus.App;
-import com.andrewchokh.medicaldossierplus.Controllers.LoginController;
 import com.andrewchokh.medicaldossierplus.Enums.SceneVariations;
 import com.andrewchokh.medicaldossierplus.Enums.Windows;
 import com.andrewchokh.medicaldossierplus.Models.Model;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class ClientController implements Initializable {

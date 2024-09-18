@@ -1,7 +1,6 @@
 package com.andrewchokh.medicaldossierplus.Controllers.Admin;
 
 import static com.andrewchokh.medicaldossierplus.App.currentUser;
-import static com.andrewchokh.medicaldossierplus.Config.Config.DECIMAL_FORMAT;
 import static com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil.getUserByEmail;
 import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.createRecord;
 import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.loadRecords;
