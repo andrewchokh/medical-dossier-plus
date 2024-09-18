@@ -4,41 +4,43 @@
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="startup_container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.LoginController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="180.0" styleClass="logo_container" stylesheets="@../Styles/startup.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <FontAwesomeIconView glyphName="HEARTBEAT" size="45" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medical Dossier+">
-               <font>
-                  <Font size="16.0" />
-               </font></Text>
-         </children></VBox>
-      <VBox layoutX="200.0" layoutY="15.0" maxWidth="380.0" prefHeight="360.0" prefWidth="380.0" spacing="1.0" styleClass="form_container" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+            <VBox prefHeight="200.0" prefWidth="180.0" styleClass="logo_container">
                <children>
-                  <Text fx:id="loginText" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
-                  <TextField fx:id="loginField" styleClass="text_field" />
+                  <FontAwesomeIconView glyphName="HEARTBEAT" size="48" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <Label text="Medical Dossier +" />
                </children>
             </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+            <VBox maxWidth="420.0" prefHeight="400.0" prefWidth="420.0" spacing="1.0" styleClass="form_container">
                <children>
-                  <Text fx:id="passwordText" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-                  <TextField fx:id="passwordField" styleClass="text_field" stylesheets="@../Styles/controls.css" />
+                  <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+                     <children>
+                        <Label text="Login:" />
+                        <TextField fx:id="loginField" styleClass="text_field" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
+                     <children>
+                        <Label text="Password:" />
+                        <TextField fx:id="passwordField" styleClass="text_field" stylesheets="@../Styles/controls.css" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="logInButton" mnemonicParsing="false" styleClass="primary_button" text="Log In">
+                     <stylesheets>
+                        <URL value="@../Styles/startup.css" />
+                        <URL value="@../Styles/controls.css" />
+                     </stylesheets>
+                  </Button>
+                  <Button fx:id="signUpButton" layoutX="110.0" layoutY="234.0" mnemonicParsing="false" styleClass="secondary_button" stylesheets="@../Styles/controls.css" text="Sign Up" />
+                  <Label fx:id="errorLabel" styleClass="error_text" text="Error!" visible="false" />
                </children>
             </VBox>
-            <Button fx:id="logInButton" mnemonicParsing="false" styleClass="primary_button" text="Log In">
-               <stylesheets>
-                  <URL value="@../Styles/startup.css" />
-                  <URL value="@../Styles/controls.css" />
-               </stylesheets></Button>
-            <Button fx:id="signUpButton" layoutX="110.0" layoutY="234.0" mnemonicParsing="false" styleClass="secondary_button" stylesheets="@../Styles/controls.css" text="Sign Up" />
-            <Text fx:id="errorText" strokeType="OUTSIDE" strokeWidth="0.0" text="Error" visible="false" />
          </children>
-      </VBox>
+      </HBox>
    </children>
    <stylesheets>
       <URL value="@../Styles/startup.css" />

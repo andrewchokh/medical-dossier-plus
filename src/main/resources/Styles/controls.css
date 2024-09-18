@@ -5,7 +5,7 @@
   -fx-font-size: 14;
   -fx-font-weight: bold;
   -fx-background-color: #397887;
-  -fx-background-radius: 2;
+  -fx-background-radius: 3;
   -fx-border-color: #397887;
   -fx-border-width: 2;
   -fx-text-fill: #EEEEEE;
@@ -34,7 +34,7 @@
   -fx-font-size: 14;
   -fx-font-weight: bold;
   -fx-background-color: #397887;
-  -fx-background-radius: 2;
+  -fx-background-radius: 3;
   -fx-border-color: #397887;
   -fx-border-width: 2;
   -fx-text-fill: #EEEEEE;
@@ -64,9 +64,9 @@
   -fx-font-size: 14;
   -fx-font-weight: bold;
   -fx-background-color: #EEEEEE;
-  -fx-background-radius: 2;
+  -fx-background-radius: 3;
   -fx-border-color: #397887;
-  -fx-border-radius: 2;
+  -fx-border-radius: 3;
   -fx-border-width: 2;
   -fx-text-fill: #000000;
 }
@@ -92,7 +92,7 @@
 .text_field {
   -fx-background-color: #EEEEEE;
   -fx-border-color: #397887;
-  -fx-border-radius: 2;
+  -fx-border-radius: 3;
   -fx-border-width: 2;
 }
 
@@ -112,6 +112,6 @@
 /* Choice Box */
 .choice_box {
   -fx-background-color: #EEEEEE;
-  -fx-border-color: #4bb0b1;
+  -fx-border-color: #397887;
   -fx-border-width: 2;
 }

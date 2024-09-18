@@ -1,5 +1,6 @@
 package com.andrewchokh.medicaldossierplus.Views;
 
+import com.andrewchokh.medicaldossierplus.Enums.Windows;
 import java.io.IOException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,20 +9,21 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class ViewFactory {
-    private final StringProperty sideMenuItem;
+    private final StringProperty sceneVariation;
 
     public ViewFactory() {
-        this.sideMenuItem = new SimpleStringProperty("");
+        this.sceneVariation = new SimpleStringProperty("");
     }
 
-    public StringProperty getSideMenuItem() {
-        return sideMenuItem;
+    public StringProperty getSceneVariation() {
+        return sceneVariation;
     }
 
-    public void showScene(String scenePath, Stage stage) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(scenePath));
+    public void showScene(Windows window, Stage stage) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(window.getPath()));
         Scene scene = null;
 
         try {
@@ -48,7 +50,6 @@ public class ViewFactory {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return view;
     }
 

@@ -16,15 +16,15 @@
             </VBox>
             <VBox layoutY="89.0" prefHeight="370.0" prefWidth="180.0" styleClass="side_bar_container" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
                <children>
-                  <Button fx:id="homeButton" layoutX="43.0" layoutY="118.0" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Home">
+                  <Button fx:id="homeButton" layoutX="43.0" layoutY="118.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Home">
                      <graphic>
                         <FontAwesomeIconView glyphName="HOME" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic></Button>
-                  <Button fx:id="diaryButton" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Diary">
+                  <Button fx:id="diaryButton" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Diary">
                      <graphic>
                         <FontAwesomeIconView glyphName="BOOK" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic></Button>
-                  <Button fx:id="recordsButton" mnemonicParsing="false" styleClass="side_bar_primary_button" text="Records">
+                  <Button fx:id="recordsButton" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Records">
                      <graphic>
                         <FontAwesomeIconView glyphName="FILE" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic></Button>
@@ -33,7 +33,7 @@
             <VBox layoutY="345.0" prefHeight="100.0" prefWidth="180.0" styleClass="report_container" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <children>
                   <Label text="Found a bug?" />
-                  <Button fx:id="reportButton" mnemonicParsing="false" styleClass="side_bar_secondary_button" text="Report">
+                  <Button fx:id="reportButton" mnemonicParsing="false" styleClass="secondary_button" stylesheets="@../../Styles/controls.css" text="Report">
                      <graphic>
                         <FontAwesomeIconView glyphName="PLUS" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>

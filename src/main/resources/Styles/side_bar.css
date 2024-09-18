@@ -15,30 +15,6 @@
   -fx-font-weight: bold;
 }
 
-.side_bar_primary_button {
-  -fx-pref-width: 115;
-  -fx-pref-height: 45;
-  -fx-font-size: 14;
-  -fx-font-weight: bold;
-  -fx-background-color: #397887;
-  -fx-text-fill: #EEEEEE;
-}
-
-.side_bar_secondary_button {
-  -fx-pref-width: 115;
-  -fx-pref-height: 45;
-  -fx-font-size: 14;
-  -fx-font-weight: bold;
-  -fx-text-fill: #000000;
-  -fx-border-color: #397887;
-  -fx-border-width: 2;
-  -fx-background-color: #EEEEEE;
-}
-
-.side_bar_primary_button FontAwesomeIconView {
-  -fx-fill: #EEEEEE;
-}
-
 .main_menu_container {
   -fx-background-color: #DEDEDE;
 }

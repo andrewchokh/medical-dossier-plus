@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="230.0" prefWidth="300.0" styleClass="verification_container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.CodeVerificationController">
+<AnchorPane prefHeight="230.0" prefWidth="300.0" styleClass="verification_container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminCodeVerificationController">
    <children>
       <VBox prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>

@@ -1,14 +1,16 @@
+/* General */
+
 .startup_container {
   -fx-background-color: #DEDEDE;
 }
 
-/*  */
+/* Authorization Logo */
 .logo_container {
   -fx-background-color: #5997A6;
   -fx-alignment: center;
 }
 
-.logo_container Text {
+.logo_container Label {
   -fx-font-size: 18;
   -fx-font-weight: bold;
 }
@@ -17,6 +19,7 @@
   -fx-text-fill: #000000;
 }
 
+/* Filling Form */
 .form_container {
   -fx-spacing: 20;
   -fx-alignment: center;
@@ -32,8 +35,8 @@
   -fx-max-width: 220
 }
 
-.field_box_container Text {
-  -fx-font-size: 20;
+.field_box_container Label {
+  -fx-font-size: 18;
   -fx-fill: #000000;
 }
 
@@ -42,7 +45,12 @@
   -fx-fill: #000000;
 }
 
+.field_box_container ChoiceBox {
+  -fx-font-size: 13;
+  -fx-background-color: green;
+}
+
 .error_text {
   -fx-font-size: 14;
-  -fx-fill: #FF0000;
+  -fx-color-label-visible: #FF0000;
 }

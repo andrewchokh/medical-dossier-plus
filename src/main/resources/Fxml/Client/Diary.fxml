@@ -4,25 +4,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="records_container" stylesheets="@../../Styles/client.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Client.RecordsController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="records_container" stylesheets="@../../Styles/client.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.andrewchokh.medicaldossierplus.Controllers.Client.ClientDiaryController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox prefHeight="45.0" prefWidth="780.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Create">
+                  <Button fx:id="createButton" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Create">
                      <graphic>
-                        <FontAwesomeIconView glyphName="FILE" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <FontAwesomeIconView fx:id="createButtonIcon" glyphName="FILE" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Button>
-                  <Button layoutX="135.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Edit">
+                  <Button fx:id="editButton" layoutX="135.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Edit">
                      <graphic>
-                        <FontAwesomeIconView glyphName="PENCIL" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <FontAwesomeIconView fx:id="editButtonIcon" glyphName="PENCIL" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Button>
-                  <Button layoutX="135.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Remove">
+                  <Button fx:id="removeButton" layoutX="135.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Remove">
                      <graphic>
                         <FontAwesomeIconView glyphName="TRASH" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="refreshButton" layoutX="260.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Refresh">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Button>
                </children>
@@ -31,13 +36,13 @@
                <children>
                   <VBox prefHeight="470.0" prefWidth="552.0" styleClass="left_side_container">
                      <children>
-                        <TextArea prefHeight="500.0" prefWidth="552.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" wrapText="true" />
-                        <Label text="Date of entry: -" />
+                        <TextArea fx:id="diaryArea" editable="false" prefHeight="500.0" prefWidth="552.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" wrapText="true" />
+                        <Label fx:id="dateLabel" text="Creation date: -" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ScrollPane prefHeight="531.0" prefWidth="218.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" />
+                        <ListView fx:id="entriesList" prefHeight="200.0" prefWidth="200.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                </children>

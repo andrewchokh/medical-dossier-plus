@@ -1,5 +1,16 @@
 package com.andrewchokh.medicaldossierplus.Enums;
 
+import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminCodeVerificationController;
+import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminController;
+import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminDiaryController;
+import com.andrewchokh.medicaldossierplus.Controllers.Admin.AdminRecordsController;
+import com.andrewchokh.medicaldossierplus.Controllers.Client.ClientController;
+import com.andrewchokh.medicaldossierplus.Controllers.Client.ClientDiaryController;
+import com.andrewchokh.medicaldossierplus.Controllers.Client.ClientRecordsController;
+import com.andrewchokh.medicaldossierplus.Controllers.LoginController;
+import com.andrewchokh.medicaldossierplus.Controllers.SignupController;
+import javafx.fxml.Initializable;
+
 public enum Windows {
     LOGIN("/Fxml/Login.fxml"),
     SIGNUP("/Fxml/Signup.fxml"),

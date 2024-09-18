@@ -4,6 +4,7 @@ module com.andrewchokh.medicaldossierplus {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
+    requires java.desktop;
 
     opens com.andrewchokh.medicaldossierplus to javafx.fxml;
     exports com.andrewchokh.medicaldossierplus;
@@ -13,4 +14,6 @@ module com.andrewchokh.medicaldossierplus {
     exports com.andrewchokh.medicaldossierplus.Models;
     exports com.andrewchokh.medicaldossierplus.Views;
     exports com.andrewchokh.medicaldossierplus.Enums;
+    exports com.andrewchokh.medicaldossierplus.Types.Builders;
+    exports com.andrewchokh.medicaldossierplus.Types;
 }
