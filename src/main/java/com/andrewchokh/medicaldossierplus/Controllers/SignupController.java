@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,8 +25,8 @@ public class SignupController implements Initializable {
     public TextField firstNameField;
     public TextField lastNameField;
     public TextField emailField;
-    public TextField passwordField;
-    public TextField repeatPasswordField;
+    public PasswordField passwordField;
+    public PasswordField repeatPasswordField;
     public Button signUpButton;
     public Button logInButton;
     public Label errorLabel;
@@ -141,6 +142,6 @@ public class SignupController implements Initializable {
                 .formatted(email)
         );
 
-        return query.isEmpty();
+        return !query.isEmpty();
     }
 }

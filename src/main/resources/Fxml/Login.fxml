@@ -26,7 +26,7 @@
                   <VBox layoutX="10.0" layoutY="10.0" prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
                      <children>
                         <Label text="Password:" />
-                        <TextField fx:id="passwordField" styleClass="text_field" stylesheets="@../Styles/controls.css" />
+                        <PasswordField fx:id="passwordField" styleClass="text_field" stylesheets="@../Styles/controls.css" />
                      </children>
                   </VBox>
                   <Button fx:id="logInButton" mnemonicParsing="false" styleClass="primary_button" text="Log In">

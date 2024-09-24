@@ -81,10 +81,15 @@ public class RecordsUtil {
         );
     }
 
-    public static void updateRecord(int id, String content) {
+    public static void updateRecord(int id, String content, float weight, int pulse, int systolic_blood_pressure,
+        int diastolic_blood_pressure, float body_temperature) {
         SQLite.executeUpdate(
-            "UPDATE Records SET content = '%s' WHERE id = '%d'"
-                .formatted(content, id)
+            """
+                UPDATE Records SET content = '%s', weight = '%s', pulse = %d, systolic_blood_pressure = %d, 
+                diastolic_blood_pressure = %d, body_temperature = '%s' WHERE id = '%d'"""
+                .formatted(content, DECIMAL_FORMAT.format(weight).replace(',', '.'),
+                    pulse, systolic_blood_pressure, diastolic_blood_pressure,
+                    DECIMAL_FORMAT.format(body_temperature).replace(',', '.'), id)
         );
     }
 }

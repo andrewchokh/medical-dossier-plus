@@ -2,6 +2,7 @@ package com.andrewchokh.medicaldossierplus.Controllers.Admin;
 
 import static com.andrewchokh.medicaldossierplus.App.currentUser;
 import static com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil.getUserByEmail;
+import static com.andrewchokh.medicaldossierplus.Utils.DatabaseUtil.getUserById;
 import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.createRecord;
 import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.loadRecords;
 import static com.andrewchokh.medicaldossierplus.Utils.RecordsUtil.updateRecord;
@@ -46,6 +47,7 @@ public class AdminRecordsController implements Initializable {
 
     private Boolean createMode = false;
     private Boolean editMode = false;
+    private int recordEditIndex = -1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,68 +63,108 @@ public class AdminRecordsController implements Initializable {
     private void createEntry() {
         createMode = !createMode;
 
-        changeControlsActivity();
-        enableCreateModeControls();
-
         if (createMode) {
-            recordArea.setEditable(true);
+            recordArea.clear();
             createButton.setText("Save");
             createButtonIcon.setGlyphName("SAVE");
+
+            changeControlsActivity();
+            enableCreateModeControls();
         }
         else {
             User user = getUserByEmail(userEmailField.getText());
 
-            if (user == null) return;
+            if (user == null) {
+                createMode = true;
+                return;
+            }
 
-            String[] bloodPressure = bloodPressureField.getText().split("/");
+            Record record;
 
-            Record record = new RecordBuilder()
-                .id(DatabaseUtil.generateRandomID())
-                .regularUserId(user.getId())
-                .adminUserId(currentUser.getId())
-                .content(recordArea.getText())
-                .creationDate(DateUtil.getCurrentDate())
-                .weight(Float.parseFloat(weightField.getText()))
-                .pulse(Integer.parseInt(pulseField.getText()))
-                .systolicBloodPressure(Integer.parseInt(bloodPressure[0]))
-                .diastolicBloodPressure(Integer.parseInt(bloodPressure[1]))
-                .bodyTemperature(Float.parseFloat(bodyTemperatureField.getText()))
-                .build();
+            try {
+                String[] bloodPressure = bloodPressureField.getText().split("/");
+
+                record = new RecordBuilder()
+                    .id(DatabaseUtil.generateRandomID())
+                    .regularUserId(user.getId())
+                    .adminUserId(currentUser.getId())
+                    .content(recordArea.getText())
+                    .creationDate(DateUtil.getCurrentDate())
+                    .weight(Float.parseFloat(weightField.getText()))
+                    .pulse(Integer.parseInt(pulseField.getText()))
+                    .systolicBloodPressure(Integer.parseInt(bloodPressure[0]))
+                    .diastolicBloodPressure(Integer.parseInt(bloodPressure[1]))
+                    .bodyTemperature(Float.parseFloat(bodyTemperatureField.getText()))
+                    .build();
+
+                if (!validateRecord(record.getContent(), record.getWeight(), record.getPulse(),
+                    record.getSystolicBloodPressure(), record.getDiastolicBloodPressure(),
+                    record.getBodyTemperature())
+                ) {
+                    createMode = true;
+                    return;
+                }
+            }
+            catch (Exception e) {
+                createMode = true;
+                return;
+            }
 
             createRecord(record);
 
-            recordArea.setEditable(false);
             createButton.setText("Create");
             createButtonIcon.setGlyphName("FILE");
+
+            changeControlsActivity();
+            enableCreateModeControls();
         }
 
         refreshEntries();
     }
 
     private void editEntry() {
-        String name = (String) recordList.getSelectionModel().selectedItemProperty().getValue();
-
-        if (name == null) return;
-
-        int index = recordList.getItems().indexOf(name);
-
         editMode = !editMode;
 
-        changeControlsActivity();
-        enableEditModeControls();
-
         if (editMode) {
-            recordArea.setEditable(true);
+            String name = (String) recordList.getSelectionModel().selectedItemProperty().getValue();
+
+            if (name == null) {
+                editMode = false;
+                return;
+            }
+
+            recordEditIndex = recordList.getItems().indexOf(name);
+
             editButton.setText("Save");
             editButtonIcon.setGlyphName("SAVE");
+
+            changeControlsActivity();
+            enableEditModeControls();
         }
         else {
-            updateRecord(records.get(index).getId(), recordArea.getText());
+            Record record = records.get(recordEditIndex);
 
-            recordArea.setEditable(false);
+            if (!validateRecord(recordArea.getText(), record.getWeight(), record.getPulse(),
+                record.getSystolicBloodPressure(), record.getDiastolicBloodPressure(),
+                record.getBodyTemperature())
+            ) {
+                editMode = true;
+                return;
+            }
+
+            updateRecord(
+                record.getId(), recordArea.getText(), record.getWeight(), record.getPulse(),
+                record.getSystolicBloodPressure(), record.getDiastolicBloodPressure(), record.getBodyTemperature()
+            );
+
             editButton.setText("Edit");
             editButtonIcon.setGlyphName("PENCIL");
+
+            changeControlsActivity();
+            enableEditModeControls();
         }
+
+        refreshEntries();
     }
 
     private void removeEntry() {
@@ -145,6 +187,10 @@ public class AdminRecordsController implements Initializable {
     private void switchRecord(ObservableValue<String> observableValue, Object o, Object o1) {
         int index = recordList.getItems().indexOf(observableValue.getValue());
 
+        if (editMode) {
+            return;
+        }
+
         if (index < 0) {
             recordArea.clear();
             dateLabel.setText("Creation date: -");
@@ -153,10 +199,22 @@ public class AdminRecordsController implements Initializable {
 
         Record record = records.get(index);
 
-        if (record != null) {
-            recordArea.setText(record.getContent());
-            dateLabel.setText("Creation date: %s".formatted(record.getCreationDate()));
-        }
+        if (record == null) return;
+
+        User regularUser = getUserById(record.getRegularUserId());
+
+        if (regularUser == null) return;
+
+        recordArea.setText(record.getContent());
+        weightField.setText(Float.toString(record.getWeight()));
+        pulseField.setText(Integer.toString(record.getPulse()));
+        bloodPressureField.setText(
+            "%d/%d"
+            .formatted(record.getSystolicBloodPressure(), record.getDiastolicBloodPressure())
+        );
+        bodyTemperatureField.setText(Float.toString(record.getBodyTemperature()));
+        userEmailField.setText(regularUser.getEmail());
+        dateLabel.setText("Creation date: %s".formatted(record.getCreationDate()));
     }
 
     private void refreshEntries() {
@@ -190,5 +248,36 @@ public class AdminRecordsController implements Initializable {
         weightField.setDisable(false);
         bodyTemperatureField.setDisable(false);
         pulseField.setDisable(false);
+    }
+
+    private Boolean validateRecord(String content, float weight, int pulse, int systolicBloodPressure,
+        int diastolicBloodPressure, float bodyTemperature) {
+        //Content validation
+        if (content.isEmpty()) {
+            return false;
+        }
+
+        // Weight validation
+        if (!(weight >= 0f && weight <= 300f)) {
+            return false;
+        }
+
+        // Pulse validation
+        if (!(pulse >= 0 && pulse <= 300)) {
+            return false;
+        }
+
+        // Blood pressure validation
+        if (!(systolicBloodPressure >= 0 && systolicBloodPressure <= 500) ||
+            !(diastolicBloodPressure > 0 && diastolicBloodPressure <= 500)) {
+            return false;
+        }
+
+        // Body temperature validation
+        if (!(bodyTemperature >= 0 && bodyTemperature <= 100f)) {
+            return false;
+        }
+
+        return true;
     }
 }

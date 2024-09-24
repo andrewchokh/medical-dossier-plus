@@ -15,7 +15,8 @@ public class DatabaseUtil {
                                           UNIQUE
                                           NOT NULL,
                     user_id       INTEGER NOT NULL
-                                          REFERENCES Users (id) ON DELETE CASCADE,
+                                          REFERENCES Users (id) ON DELETE CASCADE
+                                                                ON UPDATE CASCADE,
                     content       TEXT    NOT NULL,
                     creation_date TEXT    NOT NULL
                 );
@@ -25,17 +26,20 @@ public class DatabaseUtil {
                                                      UNIQUE
                                                      NOT NULL,
                     regular_user_id          INTEGER NOT NULL
-                                                     REFERENCES Users (id) ON DELETE CASCADE,
+                                                     REFERENCES Users (id) ON DELETE CASCADE
+                                                                           ON UPDATE CASCADE,
                     admin_user_id            INTEGER REFERENCES Users (id) ON DELETE CASCADE
+                                                                           ON UPDATE CASCADE
                                                      NOT NULL,
                     content                  TEXT    NOT NULL,
                     creation_date            TEXT    NOT NULL,
-                    weight                   REAL NOT NULL,
+                    weight                   REAL    NOT NULL,
                     pulse                    INTEGER NOT NULL,
                     systolic_blood_pressure  INTEGER NOT NULL,
                     diastolic_blood_pressure INTEGER NOT NULL,
-                    body_temperature         REAL NOT NULL
+                    body_temperature         REAL    NOT NULL
                 );
+                    
                     
                 CREATE TABLE Users (
                     id           INTEGER PRIMARY KEY

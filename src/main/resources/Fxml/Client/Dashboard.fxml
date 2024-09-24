@@ -49,7 +49,7 @@
                            </children>
                         </HBox>
                      </children></VBox>
-                  <ScrollPane fx:id="recordsPane" prefHeight="437.0" prefWidth="200.0" styleClass="records_preview_container" />
+                  <ListView fx:id="recordList" prefHeight="200.0" prefWidth="200.0" styleClass="text_field" stylesheets="@../../Styles/controls.css" />
                </children>
             </HBox>
          </children>

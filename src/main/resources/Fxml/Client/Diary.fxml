@@ -25,11 +25,6 @@
                         <FontAwesomeIconView glyphName="TRASH" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Button>
-                  <Button fx:id="refreshButton" layoutX="260.0" layoutY="10.0" mnemonicParsing="false" styleClass="primary_button" stylesheets="@../../Styles/controls.css" text="Refresh">
-                     <graphic>
-                        <FontAwesomeIconView glyphName="REFRESH" strokeType="OUTSIDE" strokeWidth="0.0" />
-                     </graphic>
-                  </Button>
                </children>
             </HBox>
             <HBox prefHeight="529.0" prefWidth="780.0" stylesheets="@../../Styles/diary.css">

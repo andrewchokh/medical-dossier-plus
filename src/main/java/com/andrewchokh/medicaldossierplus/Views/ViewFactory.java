@@ -35,6 +35,7 @@ public class ViewFactory {
         }
 
         stage.setTitle("Medical Dossier +");
+        stage.setResizable(false);
 
         stage.setScene(scene);
         stage.show();

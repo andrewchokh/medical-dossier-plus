@@ -52,13 +52,13 @@
                               <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
                                  <children>
                                     <Label text="Password:" />
-                                    <TextField fx:id="passwordField" promptText="From 8 to 24 characters" styleClass="text_field" />
+                                    <PasswordField fx:id="passwordField" promptText="From 8 to 24 characters" styleClass="text_field" stylesheets="@../Styles/controls.css" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="72.0" prefWidth="380.0" styleClass="field_box_container">
                                  <children>
                                     <Label text="Repeat password:" />
-                                    <TextField fx:id="repeatPasswordField" promptText="From 8 to 24 chars., as previous" styleClass="text_field" />
+                                    <PasswordField fx:id="repeatPasswordField" promptText="From 8 to 24 chars., as previous" styleClass="text_field" stylesheets="@../Styles/controls.css" />
                                  </children>
                               </VBox>
                            </children>
